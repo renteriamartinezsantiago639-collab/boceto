@@ -1,0 +1,327 @@
+
+/* ===== Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0d1f0a;
+  color: #1f2d25;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* ===== Inicio ===== */
+#inicio {
+  background: linear-gradient(135deg, #2f6b12, #0d1f0a);
+  color: #fff;
+}
+
+#inicio img {
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  animation: aparecerLogo 1s ease both, flotar 3s ease-in-out 1s infinite;
+}
+
+#inicio p {
+  margin-top: 20px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 6px;
+  animation: subir 1s ease 0.5s both;
+}
+
+/* Flecha que invita a bajar */
+#inicio::after {
+  content: "\25BC";
+  margin-top: 60px;
+  font-size: 1.5rem;
+  animation: rebotar 1.5s ease-in-out infinite;
+}
+
+/* ===== Quiénes somos ===== */
+#quienes {
+  background: #f1f9e4;
+}
+
+.card,
+#formResena {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  text-align: center;
+}
+
+.card h2,
+#formResena h2 {
+  color: #2f6b12;
+  margin-bottom: 15px;
+}
+
+.card img {
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.08) rotate(2deg);
+}
+
+.card p {
+  margin-bottom: 10px;
+}
+
+/* ===== Formulario ===== */
+#resena {
+  background: linear-gradient(180deg, #0d1f0a, #2f6b12);
+}
+
+#formResena {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#formResena h2 {
+  text-align: center;
+}
+
+#formResena label {
+  font-weight: 600;
+}
+
+#formResena input,
+#formResena textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #cde3a8;
+  border-radius: 10px;
+  font: inherit;
+  resize: vertical;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#formResena input:focus,
+#formResena textarea:focus {
+  outline: none;
+  border-color: #2f6b12;
+  box-shadow: 0 0 0 4px rgba(124, 189, 30, 0.35);
+}
+
+.estrellas {
+  display: flex;
+  gap: 8px;
+  font-size: 2.2rem;
+}
+
+.estrellas span {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.estrellas span:hover {
+  transform: scale(1.25);
+}
+
+.estrellas span.activa {
+  color: #d71e28;
+}
+
+#formResena button {
+  margin-top: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #2f6b12;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#formResena button:hover {
+  background: #8e0f18;
+  transform: translateY(-3px);
+}
+
+#mensaje {
+  display: none;
+  text-align: center;
+  font-weight: bold;
+  color: #2f6b12;
+}
+
+#mensaje.mostrar {
+  display: block;
+  animation: subir 0.6s ease both;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #061104;
+  color: #fff;
+}
+
+/* ===== Animación al bajar ===== */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(80px) scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.js .reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ===== Keyframes ===== */
+@keyframes aparecerLogo {
+  from { opacity: 0; transform: scale(0.3) rotate(-180deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes subir {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rebotar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(12px); }
+}
+
+/* ===== Temática Grinch ===== */
+#inicio {
+  background: radial-gradient(circle at top, #8cc63f, #2f6b12 45%, #0d1f0a);
+}
+
+#inicio p,
+.card h2,
+#formResena h2,
+footer {
+  font-family: "Mountains of Christmas", "Comic Sans MS", cursive;
+}
+
+#inicio p {
+  font-size: 3.5rem;
+  color: #d9f99d;
+  text-shadow: 3px 3px 0 #b3141d;
+}
+
+#inicio img {
+  border-color: #d71e28;
+  box-shadow: 0 0 0 6px #fff, 0 0 35px #a4e32f;
+}
+
+#inicio::after {
+  color: #a4e32f;
+}
+
+.card h2,
+#formResena h2 {
+  font-size: 2.2rem;
+  color: #b3141d;
+}
+
+/* Borde tipo bastón de dulce */
+.card,
+#formResena {
+  border: 8px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    repeating-linear-gradient(45deg, #d71e28 0 14px, #fff 14px 28px, #5a9e1c 28px 42px, #fff 42px 56px) border-box;
+}
+
+#formResena button {
+  background: #b3141d;
+}
+
+#formResena button:hover {
+  background: #2f6b12;
+}
+
+#mensaje {
+  color: #b3141d;
+}
+
+/* Luces navideñas arriba */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background: radial-gradient(circle, var(--luz, #ff3b3b) 6px, transparent 7px) 0 0 / 36px 18px repeat-x;
+  filter: drop-shadow(0 0 6px #fff7a8);
+  animation: luces 1.5s steps(1) infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Nieve cayendo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, #fff 3px, transparent 4px),
+    radial-gradient(circle, #fff 2px, transparent 3px),
+    radial-gradient(circle, #d9f99d 2px, transparent 3px);
+  background-size: 200px 200px, 130px 130px, 90px 90px;
+  opacity: 0.7;
+  animation: nevar 10s linear infinite;
+  pointer-events: none;
+  z-index: 9;
+}
+
+@keyframes nevar {
+  from { background-position: 0 0, 40px 20px, 10px 50px; }
+  to   { background-position: 200px 600px, -90px 410px, 100px 320px; }
+}
+
+@keyframes luces {
+  0%   { filter: hue-rotate(0deg) drop-shadow(0 0 6px #fff7a8); }
+  33%  { filter: hue-rotate(90deg) drop-shadow(0 0 6px #fff7a8); }
+  66%  { filter: hue-rotate(200deg) drop-shadow(0 0 6px #fff7a8); }
+}
+
+/* Para quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
